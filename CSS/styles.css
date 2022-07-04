@@ -92,32 +92,34 @@ a lot frameworks like bootstrap and tailwind IOS
 
 /*----------------------------------------------------------------------------------------------------------------------------------------*/
 /* Links */
-a{
+a {
   text-decoration: none;
 }
 .link-arrow {
   color: var(--color-accent);
   text-transform: uppercase;
-  font-size:2rem;
-  font-weight:bold;
+  font-size: 2rem;
+  font-weight: bold;
 }
 
 /*to make the arrow after the link, to implement that, we are going to use the after pseudo element selector. */
-.link-arrow::after{
-  content: '-->';
+.link-arrow::after {
+  content: "-->";
+
   /*reason why set 5px here, because we want this 
   space to always be the same, no matter how large the font as we just 
   want to have a tiny bit of space before the arrow.
   */
-  margin-left: 5px; 
+  margin-left: 5px;
+
   /*apply a transition and make this smooth.
     the margin property that we are animating.
   */
-  transition: margin 0.15s; 
+  transition: margin 0.15s;
 }
 
 /*with this rule, we are essentially targeting the element that we dynamically insert  "content: '-->' ";, but in the hover state*/
-.link-arrow:hover::after{
+.link-arrow:hover::after {
   margin-left: 10px;
 }
 
@@ -125,10 +127,53 @@ a{
 If we put every media query at the end of the css file. So every time we want to change something, we need to jump up and down for 
 adjusting the styles for mobile and desktop.
 */
-@media screen and (min-width:1024px) {
-  .link-arrow{
-    font-size:1.5rem;
+@media screen and (min-width: 1024px) {
+  .link-arrow {
+    font-size: 1.5rem;
   }
 }
 
+/*------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*Badges */
+/*here is the normal badge*/
+.badge{
+  border-radius:  20px;
 
+  /*0.5 rem for vertical padding and two rem for horizontal padding*/
+  padding: 0.5rem 2rem; 
+
+  /*since we add the font from goolge font. we changed the default font-weight. And we can choose the font-weight that we want.
+  in this case. 
+  */
+  font-weight: 600; 
+
+  /*This prevetns badge from wrapping into a second line*/
+  white-space: nowrap;
+  font-size: 2rem;
+}
+
+/*using two hyphens, we separate a block or a component from a modifier, like primary */
+.badge--primary{
+  background-color: var(--color-primary);
+  color: #fff;
+}
+
+.badge--secondary{
+  background-color: var(--color-secondary);
+  color: #fff;
+}
+
+.badge--small{
+  font-size: 1.6rem;
+
+}
+
+@media screen and (min-width: 1024px){
+ .badge{
+  font-size: 1.5rem;
+ }
+
+ .badge--small {
+  font-size: 1.2rem;
+ }
+}
