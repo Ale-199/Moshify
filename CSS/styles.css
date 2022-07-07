@@ -18,6 +18,17 @@ parent of a given specification. In the HTML specification, the :root is
   --color-body: #918ca4;
 }
 
+/*grab all element, as well as elements that are dynamically inserted after or before them
+The ::after selector inserts something after the content of each selected element(s).
+Use the ::before selector to insert something before the content.
+*/
+*,
+*::after,
+*::before {
+  /*Set the "universal box-sizing":*/
+  box-sizing: border-box;
+}
+
 /* Typography*/
 /*by default it is going to be 16px. This is set by the browser*/
 html {
@@ -135,7 +146,7 @@ adjusting the styles for mobile and desktop.
 
 /*------------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*Badges */
-/*here is the normal badge*/
+/*first we are going to create a normal badge*/
 .badge {
   border-radius: 20px;
 
@@ -152,7 +163,8 @@ adjusting the styles for mobile and desktop.
   font-size: 2rem;
 }
 
-/*using two hyphens, we separate a block or a component from a modifier, like primary */
+/*using two hyphens, we separate a block or a component from a modifier, like primary 
+  this is the primary badge*/
 .badge--primary {
   background-color: var(--color-primary);
   color: #fff;
@@ -224,18 +236,87 @@ adjusting the styles for mobile and desktop.
 }
 
 /*using single hyphen here. because this is not a variation, or a modifier for the icon class. This is an entirely new class. use single hyphen to separate multiple words*/
-.icon-container{
+.icon-container {
   background: #f3f9fa;
 
   /*using px value here, because our icon always the same size. The don't change relative to the screen or the font size.that is why using an absolute unit here.
     width and height properties have no effect on inline elements. span is a inline element
   */
-  width:64px;
-  height:64px;
+  width: 64px;
+  height: 64px;
   border-radius: 100%;
-  display:inline-flex;
+  display: inline-flex;
   /*justify content for aligning along the horizontal axis*/
   justify-content: center;
   /*align-item for aligning along the vertical axis*/
-  align-items:center;
+  align-items: center;
+}
+
+/*----------------------------------------------------------------------------------------------------------------------------*/
+/* Button */
+.btn {
+  border-radius: 40px;
+  border: 0;
+
+  /*have the same pointer when we hover our mouse over the button element*/
+  cursor: pointer;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 1rem 0;
+  padding: 2rem 3rem;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.btn--primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.btn--primary:hover {
+  background: #3a8ffd;
+}
+
+.btn--secondary {
+  background: var(--color-secondary);
+  color: #fff;
+}
+
+.btn--secondary:hover {
+  background: #00c8eb;
+}
+
+.btn--accent {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+.btn--accent:hover {
+  background: #ec3000;
+}
+
+.btn--outline {
+  background: #fff;
+  color: var(--color-headings);
+  border: 2px solid var(--color-headings);
+}
+
+.btn--outline:hover {
+  background: var(--color-headings);
+  color: #fff;
+}
+
+.btn-block {
+  width: 100%;
+  /*anchor element is inline by default. if you give them a width, that is not gonna work.
+  so use the inline-block, to make the button show as block
+  */
+  display: inline-block;
+}
+
+@media screen and (min-width: 1024px) {
+  .btn {
+    font-size: 1.5rem;
+  }
 }
