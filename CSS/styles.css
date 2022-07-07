@@ -102,7 +102,7 @@ a {
   font-weight: bold;
 }
 
-/*to make the arrow after the link, to implement that, we are going to use the after pseudo element selector. */
+/*to make a arrow after the link, to implement that, we are going to use the after pseudo element selector. */
 .link-arrow::after {
   content: "-->";
 
@@ -177,7 +177,7 @@ adjusting the styles for mobile and desktop.
   }
 }
 
-/*---------------------------------------------------------------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------------------------------------------------------------------------*/
 /* Lists */
 .list {
   list-style: none;
@@ -205,8 +205,37 @@ adjusting the styles for mobile and desktop.
   margin-bottom: 1rem;
 }
 
-@media screen and (min-width: 1024px){
-  .list--tick .list__item{
+@media screen and (min-width: 1024px) {
+  .list--tick .list__item {
     padding-left: 0;
   }
+}
+
+/*------------------------------------------------------------------------------------------------------------------------------------------*/
+/* Icons*/
+.icon {
+  width: 40px;
+  height: 40px;
+}
+
+.icon--primary {
+  /*use fill propertity to applies to SVG images.*/
+  fill: var(--color-primary);
+}
+
+/*using single hyphen here. because this is not a variation, or a modifier for the icon class. This is an entirely new class. use single hyphen to separate multiple words*/
+.icon-container{
+  background: #f3f9fa;
+
+  /*using px value here, because our icon always the same size. The don't change relative to the screen or the font size.that is why using an absolute unit here.
+    width and height properties have no effect on inline elements. span is a inline element
+  */
+  width:64px;
+  height:64px;
+  border-radius: 100%;
+  display:inline-flex;
+  /*justify content for aligning along the horizontal axis*/
+  justify-content: center;
+  /*align-item for aligning along the vertical axis*/
+  align-items:center;
 }
