@@ -15,6 +15,17 @@
     <link rel="stylesheet" href="CSS/styles.css" />
   </head>
   <body>
-  
+    <div style="width: 30%; padding: 4rem">
+      <div class="card card--secondary">
+        
+          <!--reason why using double underscores, because the header is an element inside this block,so it
+        cannot exist on its own outside of this block, or outside of this component. 是固定在card里面的header-->
+        <header class="card__header">Card Title</header>
+        <div class="card__body">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum,
+          assumenda?
+        </div>
+      </div>
+    </div>
   </body>
 </html>
