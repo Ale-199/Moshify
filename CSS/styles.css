@@ -16,6 +16,8 @@ parent of a given specification. In the HTML specification, the :root is
   --color-accent: #ff3400;
   --color-headings: #1b0760;
   --color-body: #918ca4;
+  --color-border: #ccc;
+  --border-radius: 30px;
 }
 
 /*grab all element, as well as elements that are dynamically inserted after or before them
@@ -324,8 +326,8 @@ adjusting the styles for mobile and desktop.
 /*-----------------------------------------------------------------------------------------------------------------------------------------------*/
 /* Input*/
 .input {
-  border-radius: 30px;
-  border: 1px solid #ccc;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--color-border);
   color: var(--color-headings);
   font-size: 2rem;
   outline: 0;
@@ -335,6 +337,35 @@ adjusting the styles for mobile and desktop.
 /*change the color of the palceholder*/
 ::placeholder {
   color: #cdcbd7;
+}
+
+/*this is a container for input field and button */
+.input-group {
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+
+  /*to push the button to the right, we want to make this input field grow and take up all the available space
+  input component is a flex item*/
+  display: flex;
+}
+
+/*this mean the input class inside the input-group class will be have the following css style*/
+.input-group .input {
+  border: 0;
+
+  /*this will make this input field grow to take up all the available space*/
+  /*The flex-grow property specifies how much the item will grow relative to 
+  the rest of the flexible items inside the same container.*/
+  /*A number specifying how much the item will grow relative to the rest of the
+   flexible items. Default value is 0*/
+  flex-grow: 1;
+  padding: 1.5rem 1rem;
+}
+
+.input-group .btn {
+  /*using an absolute value here, because we don't want the margin to be dependent on the font size or the 
+  viewport size. always want to have four pixels of margin.*/
+  margin: 4px;
 }
 
 @media screen and (min-width: 1024px) {
