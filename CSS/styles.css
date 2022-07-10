@@ -234,9 +234,18 @@ adjusting the styles for mobile and desktop.
   height: 40px;
 }
 
+.icon--small{
+  width: 30px;
+  height: 30px;
+}
+
 .icon--primary {
   /*use fill propertity to applies to SVG images.*/
   fill: var(--color-primary);
+}
+
+.icon--white{
+  fill:#fff;
 }
 
 /*using single hyphen here. because this is not a variation, or a modifier for the icon class. This is an entirely new class. use single hyphen to separate multiple words*/
@@ -254,6 +263,10 @@ adjusting the styles for mobile and desktop.
   justify-content: center;
   /*align-item for aligning along the vertical axis*/
   align-items: center;
+}
+
+.icon-container--accent{
+  background: var(--color-accent);
 }
 
 /*----------------------------------------------------------------------------------------------------------------------------*/
@@ -564,3 +577,43 @@ adjusting the styles for mobile and desktop.
     grid-template-columns: repeat(3, 1fr);
   }
 }
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+/* Testimonials */
+.testimonial {
+  padding: 3rem;
+}
+
+.testimonial__image {
+  position: relative;
+}
+
+/*target the imgae that inside .testimonial__image class
+to make the image responsive
+*/
+.testimonial__image > img {
+  width: 100%;
+}
+
+.testimonial__image > .icon-container {
+  position: absolute;
+  top: 3rem;
+  right: -32px;
+}
+
+@media screen and (min-width: 768px) {
+  .testimonial__image {
+    margin: 0;
+  }
+
+  .testimonial .quote,
+  .testimonial .quote__author {
+    font-size: 2.4rem;
+  }
+
+  .testimonial .quote {
+    margin-left: 6rem;
+    margin-right: 0;
+  }
+}
+
