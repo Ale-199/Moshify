@@ -234,7 +234,7 @@ adjusting the styles for mobile and desktop.
   height: 40px;
 }
 
-.icon--small{
+.icon--small {
   width: 30px;
   height: 30px;
 }
@@ -244,8 +244,8 @@ adjusting the styles for mobile and desktop.
   fill: var(--color-primary);
 }
 
-.icon--white{
-  fill:#fff;
+.icon--white {
+  fill: #fff;
 }
 
 /*using single hyphen here. because this is not a variation, or a modifier for the icon class. This is an entirely new class. use single hyphen to separate multiple words*/
@@ -265,7 +265,7 @@ adjusting the styles for mobile and desktop.
   align-items: center;
 }
 
-.icon-container--accent{
+.icon-container--accent {
   background: var(--color-accent);
 }
 
@@ -322,6 +322,11 @@ adjusting the styles for mobile and desktop.
 .btn--outline:hover {
   background: var(--color-headings);
   color: #fff;
+}
+
+.btn--stretched {
+  padding-left: 6rem;
+  padding-right: 6rem;
 }
 
 .btn--block {
@@ -617,3 +622,49 @@ to make the image responsive
   }
 }
 
+/*--------------------------------------------------------------------------------------------------------------------*/
+/* Callouts */
+.callout {
+  padding: 4rem;
+  border-radius: 5px;
+}
+
+.callout--primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.callout__heading {
+  color: #fff;
+  margin-top: 0;
+  font-size: 3rem;
+}
+
+/*btn class insdie the callout class*/
+.callout .btn {
+  /*this is a pretty property we apply to a grid item*/
+  justify-self: center;
+  align-self: center;
+}
+
+.callout__content {
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  /*the content would stretch and take up all the extra space*/
+  /*this make the column get wide enough to fit the button. All the 
+  extra space will be allocated to the first column.*/
+  .callout .grid--1x2 {
+    grid-template-columns: 1fr auto;
+  }
+
+  .callout__content {
+    text-align: left;
+  }
+
+  .callout .btn {
+    justify-self: start;
+    margin: 0 2rem;
+  }
+}
