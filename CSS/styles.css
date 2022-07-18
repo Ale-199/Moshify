@@ -707,3 +707,55 @@ to make the image responsive
   max-height: 100vh;
   opacity: 1;
 }
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+/* Block */
+.block {
+  /*we can also define a variable in this particular element, or in this particular rule*/
+  --padding-vertical: 6rem;
+  padding: var(--padding-vertical) 2rem;
+}
+
+.block__header {
+  text-align: center;
+}
+
+.block__heading {
+  margin-top: 0;
+}
+
+.block--dark {
+  background: #000;
+  color: #7b858b;
+}
+
+.block--dark .block__heading {
+  color: #fff;
+}
+
+/*using this website to generate clip path https://bennettfeely.com/clippy/*/
+.block--skewed-right {
+  /*we can use the calculate function to grab this value, and then add something to it*/
+  /*reason why we need to add the padding-bottom here is because after we add skewed-right, the padding below the paragraph is less than the padding above the head. To
+  fix that problem we should apply an extra padding to skewed blocks.*/
+  padding-bottom: calc(var(--padding-vertical) + 4rem);
+
+  /*the first number is the x-offset, the second is the y-offset*/
+  /*top left corner, top right corner, bottom right corner, bottom left corner*/
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 80%);
+}
+
+.block--skewed-left {
+  padding-bottom: calc(var(--padding-vertical) + 4rem);
+  clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 0% 100%);
+}
+
+/*Even if you have a really wide screen, our content is not going to stretch, it's always going to be inside this boundary.*/
+/*This is a reusable class, we can use it anywhere*/
+.container {
+  max-width: 1140px;
+
+  /*that means 0 picels for vertical margin and auto the horizaontal margin. So if you have extra space, the space will be equally 
+  distributed to the sides of the this block. */
+  margin: 0 auto;
+}
