@@ -1,16 +1,34 @@
-    <!--we should start with more generic classes, and then less specialized classes to override styles.
+<!--we should start with more generic classes, and then less specialized classes to override styles.
         The hero class will orverride the clip path property-->
-        <section class="block block--dark block--skewed-left hero">
-            <div class="container grid grid--1x2">
-              <!--First column-->
-              <header class="block__header hero__content">
-                <h1 class="block__heading">Cloud Hosting for Pros</h1>
-                <p class="hero__tagline">
-                  Deploy your websites in less than 60 seconds.
-                </p>
-                <a href="" class="btn btn--accent btn--stretched">Get Started</a>
-              </header>
-              <!--second column-->
-              <img class="hero__image" src="images/banner.png" alt="" />
-            </div>
-          </section>
+<section class="block block--dark block--skewed-left hero">
+  <div class="container grid grid--1x2">
+    <!--First column-->
+    <header class="block__header hero__content">
+      <h1 class="block__heading">Cloud Hosting for Pros</h1>
+      <p class="hero__tagline">Deploy your websites in less than 60 seconds.</p>
+      <a href="" class="btn btn--accent btn--stretched">Get Started</a>
+    </header>
+    <!--second column-->
+
+    <!--
+    The HTML <picture> element gives web developers more flexibility in specifying image resources
+    The <picture> element contains one or more <source> elements, each referring to different images through the srcset attribute. 
+    This way the browser can choose the image that best fits the current view and/or device.
+    -->
+    <picture>
+        <!--using the webp can reduce the size of the images file. To load the images faster, even if the user has a low internet-->
+        <!--First of all, use the photo shop to resize the images, then save them in your computer. After that you will notice that 
+        the size of images have become smaller. But that is not enough, then using the cloudconvert.com to convert the files to webp, which 
+        will reduce the size of the imgaes.-->
+      <source
+        type="image/webp"
+        srcset="images/banner.webp 1x, images/banner@2x.webp 2x"
+      />
+      <source
+        type="image/png"
+        srcset="images/banner.png 1x, images/banner@2x.png 2x"
+      />
+      <img class="hero__image" src="images/banner.png" alt="" />
+    </picture>
+  </div>
+</section>
