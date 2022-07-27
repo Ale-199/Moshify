@@ -759,3 +759,88 @@ to make the image responsive
   distributed to the sides of the this block. */
   margin: 0 auto;
 }
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+/* Navigation Bar */
+.nav {
+  background: #000;
+  display: flex;
+
+  /*this will push the items to the edges of the container and add space between them
+  	Items will have space between them
+  */
+  /*so the first and last items are pushed to the side, and the remaining space is distributed between other items
+  */
+  justify-content: space-between;
+  
+  /*The flex-wrap property specifies whether the flexible items should wrap or not.*/
+  flex-wrap: wrap;
+
+  /*to make the toggler's padding 0 horizontal,2 rem vertical*/
+  padding: 0 1rem;
+
+  /*The align-items property specifies the default alignment for items inside the flexible container.*/
+  align-items: center;
+}
+
+.nav__list {
+  width: 100%;
+  margin: 0;
+}
+
+.nav__item {
+  padding: 0.5rem 2rem;
+  border-bottom: 1px solid #222;
+}
+
+/*we can use the direct child selector to the target the anchor inside this element.*/
+.nav__item > a {
+  color: #d2d0db;
+  /*apply a transition to make ".nav_item > a: hover" looks nicer*/ 
+  transition: color 0.3s;
+}
+
+/*we can use the direct child selector to the target the anchor inside this element.*/
+.nav__item > a:hover {
+  color: #fff;
+}
+
+/*designing toggler button in the mobile size app*/
+.nav__toggler {
+  opacity: 0.5;
+  transition: box-shadow 0.15s;
+  cursor: pointer;
+}
+
+/*with this we can select an element that has both these classes.*/
+.nav.collapsible--expanded .nav__toggler {
+  opacity: 1;
+  box-shadow: 0 0 0 3px #666;
+  border-radius: 5px;
+}
+
+/*to move the logo a little bit down*/
+.nav__brand {
+  transform: translateY(5px);
+}
+
+@media screen and (min-width: 768px) {
+  .nav__toggler {
+    display: none;
+  }
+
+  .nav__list {
+    width: auto;
+    display: flex;
+    font-size: 1.6rem;
+
+    /*The max-height property defines the maximum height of an element.*/
+    /*with this properties, we can show the navigation list*/
+    max-height: 100%;
+    opacity: 1;
+  }
+
+  .nav__item {
+    border: 0;
+  }
+}
