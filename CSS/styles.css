@@ -51,6 +51,7 @@ h2,
 h3 {
   color: var(--color-headings);
   margin-bottom: 1rem;
+  line-height: 1.1;
 }
 
 h1 {
@@ -772,7 +773,7 @@ to make the image responsive
   /*so the first and last items are pushed to the side, and the remaining space is distributed between other items
   */
   justify-content: space-between;
-  
+
   /*The flex-wrap property specifies whether the flexible items should wrap or not.*/
   flex-wrap: wrap;
 
@@ -783,6 +784,7 @@ to make the image responsive
   align-items: center;
 }
 
+/*because ul is a block-level element, so we set the .nav_list to width100% to make it starts on a new line */
 .nav__list {
   width: 100%;
   margin: 0;
@@ -793,10 +795,10 @@ to make the image responsive
   border-bottom: 1px solid #222;
 }
 
-/*we can use the direct child selector to the target the anchor inside this element.*/
+/*we can use the direct child selector to the target the anchor inside .nav_item.*/
 .nav__item > a {
   color: #d2d0db;
-  /*apply a transition to make ".nav_item > a: hover" looks nicer*/ 
+  /*apply a transition to make ".nav_item > a: hover" looks nicer*/
   transition: color 0.3s;
 }
 
@@ -842,5 +844,43 @@ to make the image responsive
 
   .nav__item {
     border: 0;
+  }
+}
+
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+/* Hero --> the first part of the page. include the navigation bar*/
+.hero {
+  clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 0% 100%);
+}
+
+/*this is for the <p> element*/
+/*In this implementation, I've defined this properties as part of an element called tagline, which belongs to the 
+hero component. 
+Tagline for hero component
+*/
+.hero__tagline {
+  font-size: 2rem;
+  color: #b9c3cf;
+  letter-spacing: 1px;
+
+  /*2rem for top margin, 0 for both right and left margin, and 5rem for margin bottom*/
+  margin: 2rem 0 5rem;
+}
+
+.hero__image {
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .hero {
+    padding-top: 0;
+  }
+
+  .hero__content {
+    text-align: left;
+    
+    /*The align-self property specifies the alignment for the selected item inside the flexible container.*/
+    align-self: center;
   }
 }
