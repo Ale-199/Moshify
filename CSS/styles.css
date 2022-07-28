@@ -281,10 +281,19 @@ adjusting the styles for mobile and desktop.
   font-size: 1.8rem;
   font-weight: 600;
   margin: 1rem 0;
+  outline: 0;
   padding: 2rem 3rem;
   text-align: center;
   text-transform: uppercase;
   white-space: nowrap;
+}
+
+/*target the icon inside the button*/
+.btn .icon {
+  width: 2rem;
+  height: 2rem;
+  margin-right: 1rem;
+  vertical-align: middle;
 }
 
 .btn--primary {
@@ -380,7 +389,7 @@ adjusting the styles for mobile and desktop.
   /*A number specifying how much the item will grow relative to the rest of the
    flexible items. Default value is 0*/
   flex-grow: 1;
-  padding: 1.5rem 1rem;
+  padding: 1.5rem 2rem;
 }
 
 .input-group .btn {
@@ -847,7 +856,6 @@ to make the image responsive
   }
 }
 
-
 /*--------------------------------------------------------------------------------------------------------------------*/
 /* Hero --> the first part of the page. include the navigation bar*/
 .hero {
@@ -879,8 +887,46 @@ Tagline for hero component
 
   .hero__content {
     text-align: left;
-    
+
     /*The align-self property specifies the alignment for the selected item inside the flexible container.*/
     align-self: center;
+  }
+}
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+/* Domain Block  --> Second part of the page. Just below the hero part*/
+/*the input-group inside the block-domain class*/
+.block-domain .input-group {
+  box-shadow: 0 0 30px 20px #e6ebee;
+  border: 0;
+  margin: 4rem auto;
+  max-width: 670px;
+}
+
+.block-domain__prices {
+  display: grid;
+
+  /*3 columns. So we are going to divide the free space into three fractions or three slices, and give each column one slice.*/
+  grid-template-columns: repeat(3, 1fr);
+
+  /*two rows. 6rem is for setting the height of each row.*/
+  grid-template-rows: repeat(2, 6rem);
+  font-size: 2rem;
+  font-weight: 600;
+
+  /*this is for the horizontal alignment*/
+  justify-items: center;
+  max-width: 700px;
+  /*seeting horizontal margin to auto, so all the available space will be equally spread to the left and right margins*/
+  margin: 0 auto;
+}
+
+/*screen wider than 768px*/
+@media screen and (min-width: 768px) {
+  .block-domain__prices {
+    /*with this, the gird will try to create as many columns as needed to fit all these items.But does not work with fraction unit.
+   */
+   /*using minmax function to provide a range. this function take two arguments,our coulumn should be minimum of 100 px, and maximum of 1 fracture.*/
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
   }
 }
