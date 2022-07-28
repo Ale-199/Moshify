@@ -429,12 +429,20 @@ adjusting the styles for mobile and desktop.
   color: #fff;
 }
 
+.card--primary .badge--primary {
+  background: #126de4;
+}
 .card--secondary .badge--secondary {
   background: #02cdf1;
 }
 
 /*--------------------------------------------------------------------------------------------------------------------*/
-/* Plan */
+/* Plans */
+/*for all plans, whether they are popular or not.*/
+.plan {
+  transition: transform 0.2s ease-out;
+}
+
 .plan__name {
   color: #fff;
   margin: 0;
@@ -464,6 +472,12 @@ adjusting the styles for mobile and desktop.
   margin-bottom: 2rem;
 }
 
+/*if you have a plan that is popular,it should be slightly larger.*/
+.plan--popular {
+  /*10% larger*/
+  transform: scale(1.1);
+}
+
 /*如果不把这里的设置为relative， .plan--popular .card__header::before 里的absolute就以整个html作为relative */
 .plan--popular .card__header {
   position: relative;
@@ -482,6 +496,16 @@ adjusting the styles for mobile and desktop.
   position: absolute;
   top: -6px;
   right: 5%;
+}
+
+.plan:hover {
+  /*5% larger*/
+  transform: scale(1.05);
+}
+
+.plan--popular:hover {
+  /*15% larger*/
+  transform: scale(1.15);
 }
 
 @media screen and (min-width: 1024px) {
@@ -929,4 +953,16 @@ Tagline for hero component
    /*using minmax function to provide a range. this function take two arguments,our coulumn should be minimum of 100 px, and maximum of 1 fracture.*/
     grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
   }
+}
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+/* Plans Block */
+.block-plans .grid {
+  gap: 8rem 4rem;
+}
+
+.block-plans .card {
+  /*our card is not going to stretch beyond 500 px.*/
+  max-width: 500px;
+  margin: 0 auto;
 }
