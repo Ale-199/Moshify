@@ -39,6 +39,12 @@ Use the ::before selector to insert something before the content.
 }
 
 /* Typography*/
+/*we are going to use a pseudo element selector called selection to specify the color of the selected text.*/
+::selection{
+  background: var(--color-primary);
+  color: #fff;
+}
+
 /*by default it is going to be 16px. This is set by the browser*/
 html {
   /* 62.5% * 16px = 10px, change the default font-size to 10px*/
@@ -79,6 +85,7 @@ h2 {
 
 h3 {
   font-size: 3rem;
+  font-weight: 500;
 }
 
 p {
@@ -207,7 +214,7 @@ adjusting the styles for mobile and desktop.
 
   /*get rid of the left padding that all browser apply by default.*/
   padding-left: 0;
-  color: var(--color-headings);
+
 }
 
 .list--inline .list__item {
@@ -220,6 +227,7 @@ adjusting the styles for mobile and desktop.
 
   /*the icon won't show if we don't set the padding-left here, because we set the padding-left to 0 previously*/
   padding-left: 3rem;
+  color: var(--color-headings);
 }
 
 /*for lists with a tick skin. our items should have the following attribute*/
@@ -538,6 +546,7 @@ adjusting the styles for mobile and desktop.
   /*flex	Displays an element as a block-level flex container*/
   /*if we use flex on the container, we can lay the element horizontally*/
   display: flex;
+  margin-bottom: 4rem;
 }
 
 .media__title {
@@ -769,7 +778,10 @@ to make the image responsive
   color: #7b858b;
 }
 
-.block--dark .block__heading {
+/*h1 h2 and h3 inside a class named block--dark will have the following css style*/
+.block--dark h1,
+.block--dark h2,
+.block--dark h3 {
   color: #fff;
 }
 
@@ -782,12 +794,12 @@ to make the image responsive
 
   /*the first number is the x-offset, the second is the y-offset*/
   /*top left corner, top right corner, bottom right corner, bottom left corner*/
-  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 80%);
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 90%);
 }
 
 .block--skewed-left {
   padding-bottom: calc(var(--padding-vertical) + 4rem);
-  clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 0% 100%);
+  clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 0% 100%);
 }
 
 /*Even if you have a really wide screen, our content is not going to stretch, it's always going to be inside this boundary.*/
@@ -888,10 +900,6 @@ to make the image responsive
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 /* Hero --> the first part of the page. include the navigation bar*/
-.hero {
-  clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 0% 100%);
-}
-
 /*this is for the <p> element*/
 /*In this implementation, I've defined this properties as part of an element called tagline, which belongs to the 
 hero component. 
@@ -956,7 +964,7 @@ Tagline for hero component
   .block-domain__prices {
     /*with this, the gird will try to create as many columns as needed to fit all these items.But does not work with fraction unit.
    */
-   /*using minmax function to provide a range. this function take two arguments,our coulumn should be minimum of 100 px, and maximum of 1 fracture.*/
+    /*using minmax function to provide a range. this function take two arguments,our coulumn should be minimum of 100 px, and maximum of 1 fracture.*/
     grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
   }
 }
@@ -972,7 +980,6 @@ Tagline for hero component
   max-width: 500px;
   margin: 0 auto;
 }
-
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 /* Features Block */
@@ -1005,5 +1012,29 @@ first of type and overwrite the top margin*/
   /*using this kind of way when using the grid as a container*/
   .feature:nth-of-type(even) .feature__content {
     order: 2;
+  }
+}
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+/* Showcase Block */
+.block-showcase__image > img {
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  /*if we have a block showcase, in this block we have a grid, The template for this grid should be like 50% and 50%*/
+  .block-showcase .grid {
+    grid-template-columns: 50% 50%;
+  }
+
+  .block-showcase__image {
+    /*The align-self property specifies the alignment for the selected item inside the flexible container.*/
+    justify-self: end;
+  }
+
+  .block-showcase__image > img {
+    /*with this, the image will be displayed in its actual size*/
+    width: auto;
+    max-width: 700px;
   }
 }
