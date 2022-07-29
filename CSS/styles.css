@@ -1040,3 +1040,102 @@ first of type and overwrite the top margin*/
 }
 
 /* Testimonials Block */
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+/*footer*/
+.footer {
+  background: #232323;
+}
+
+.footer a {
+  color: #777;
+  transition: color 0.3s;
+}
+
+.footer a:hover {
+  color: #fff;
+}
+
+/*for each of the secntion of column or collapsible*/
+.footer__section {
+  padding: 2rem;
+  border-bottom: 1px solid #393939;
+}
+
+.footer__section .list {
+  margin: 0;
+}
+
+.footer__heading {
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/*footer logo*/
+.footer__brand {
+  margin-top: 5rem;
+  text-align: center;
+}
+
+.footer__brand img {
+  /* TODO: Consider refactoring this and applying it to 
+  all images. */
+  width: 100%;
+  /*
+The max-width property defines the maximum width of an element.
+
+If the content is larger than the maximum width, it will automatically change the height of the element.
+
+If the content is smaller than the maximum width, the max-width property has no effect.*/
+  max-width: 230px;
+}
+
+.footer__copyright {
+  font-size: 2.1rem;
+  color: #fff;
+  opacity: 0.3;
+}
+
+@media screen and (min-width: 768px) {
+  .footer {
+    font-size: 1.5rem;
+  }
+
+  /*use auto-fit, so the gird can fit as many items as it can.But autofit does not
+  work with just one fr, We have to use minmanx and give it a minimum value and 
+  maximum of one fr.*/
+  .footer__sections {
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  }
+
+  .footer .collapsible__chevron {
+    display: none;
+  }
+
+  .footer .collapsible__content {
+    /*here we can not set display to block because earlier we use a different 
+    technique for animating the expansion of this object.*/
+    opacity: 1;
+    max-height: 100%;
+  }
+
+  /*we are going to change the order of this element. so by default, the order of all
+  grid items is zero. If we set this to negative one, then it will move before the first
+  item*/
+  .footer__brand {
+    order: -1;
+    margin-top: 1rem;
+  }
+
+  .footer__copyright {
+    font-size: 1.5rem;
+  }
+
+  .footer__section {
+    border: 0;
+  }
+
+  .footer__heading {
+    font-size: 1.6rem;
+  }
+}
