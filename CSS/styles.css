@@ -1,4 +1,10 @@
 /*
+OOCSS -- Object-Oriented CSS
+https://www.hongkiat.com/blog/basics-of-object-oriented-css/
+
+*/
+
+/*
 The CSS :root pseudo-class selector is used to select the highest-level 
 parent of a given specification. In the HTML specification, the :root is
  essentially equivalent to the html selector
@@ -965,4 +971,39 @@ Tagline for hero component
   /*our card is not going to stretch beyond 500 px.*/
   max-width: 500px;
   margin: 0 auto;
+}
+
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+/* Features Block */
+.feature {
+  /*4rem of gap for rows and two rem for columns*/
+  gap: 4rem 2rem;
+  margin: 12rem 0;
+}
+
+/*we can use pseufo class selectors to target the first feature. So we want to grab the first feature so we say 
+first of type and overwrite the top margin*/
+.feature:first-of-type {
+  margin-top: 6rem;
+}
+
+.feature__heading {
+  margin: 1rem 0;
+}
+
+/*now the image responsive great*/
+.feature__image {
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  /*define a role and target every second feature*/
+  /*with this we are going to select the second, the fourth, the sixth feature and so on.*
+  Then we ate going to target feature content. swap the order and set it to two.By default, the order of content is one, because in our markup, we have added the
+  content first, and then the image. So now by setting the order of the content to two, the image will take up the position of the first item in the grid.*/
+  /*using this kind of way when using the grid as a container*/
+  .feature:nth-of-type(even) .feature__content {
+    order: 2;
+  }
 }
