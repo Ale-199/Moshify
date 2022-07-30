@@ -1,4 +1,9 @@
 /*
+if we are having some issues, we should always try to isolate the problem. The better we isolate the problem, the faster we 
+can find the cause and fix it.
+*/
+
+/*
 OOCSS -- Object-Oriented CSS
 https://www.hongkiat.com/blog/basics-of-object-oriented-css/
 
@@ -214,6 +219,7 @@ adjusting the styles for mobile and desktop.
 
   /*get rid of the left padding that all browser apply by default.*/
   padding-left: 0;
+ 
 }
 
 .list--inline .list__item {
@@ -295,7 +301,11 @@ adjusting the styles for mobile and desktop.
   font-weight: 600;
   margin: 1rem 0;
   outline: 0;
-  padding: 2rem 3rem;
+
+  /*Instead of using a rem unit for horizontal padding or horizontal margin, we can use
+  a percentage of the viewport width. 4vw means 4% of the width of the viewport. The wider the viewport, the more 
+  horizontal lpadding we are going to have*/
+  padding: 2rem 4vw;
   text-align: center;
   text-transform: uppercase;
   white-space: nowrap;
@@ -403,6 +413,10 @@ adjusting the styles for mobile and desktop.
    flexible items. Default value is 0*/
   flex-grow: 1;
   padding: 1.5rem 2rem;
+
+  /*set the width to 0, and then let this property take care of growing the input field.
+  So the input field will grow and take up all the available space*/
+  width: 0;
 }
 
 .input-group .btn {
@@ -942,10 +956,11 @@ Tagline for hero component
 }
 
 .block-domain__prices {
+  color: var(--color-headings);
   display: grid;
 
-  /*3 columns. So we are going to divide the free space into three fractions or three slices, and give each column one slice.*/
-  grid-template-columns: repeat(3, 1fr);
+  /*2 columns. So we are going to divide the free space into 2 fractions or 2 slices, and give each column one slice.*/
+  grid-template-columns: repeat(2, 1fr);
 
   /*two rows. 6rem is for setting the height of each row.*/
   grid-template-rows: repeat(2, 6rem);
