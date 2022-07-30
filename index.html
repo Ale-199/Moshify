@@ -1,3 +1,27 @@
+<!--
+Building for production -- using build tool
+-we can combine multiple JavaScript or CSS files. we can reduce the number of the HTTP requests sent from the browser to the server.
+-we can also minify our JavaScript and CSS files. so we can remove all the extra spaces, comments, and unnecessary characters. with
+this we can reduce the size of our assets and deliver smaller files to the users.
+-we can also optimize our images, so far, we have been doing this manually in PS and cloudconvert. But there are command line tools we
+can bring as part of out building process.
+
+
+Build tools
+-webpack
+-Rollup
+-Parcel: is blazing fast zero configuration web application bundler.
+
+Node package manager (NPM)
+-with this tool we can install third party libraries, also call thrid party dependencies.
+-First we need to initialize a NPM package in this directory. npm init -y
+-To install parcel. npm i -D parcel-bundler
+we insatll the package using the D option. D is short for development dependency.
+Sometimes there are breaing changes between different version of these libraries. To follow along with the tutorial.
+Higly encourage to use the exact same version which is 1.12.4 . To do that using this command: npm i -D parcel-bundler@1.12.4
+-use parcel to launch our website:npm i -g parcel-bundler
+-->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -5,7 +29,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!--the description will show below the website when people search my website-->
-    <meta name="description" content="Deploy your website in less than 60 seconds." />
+    <meta
+      name="description"
+      content="Deploy your website in less than 60 seconds."
+    />
     <!--we have a few metal elements for customizing what people are going to see.
     we can customize the title, the description and the image.
     -->
@@ -192,7 +219,7 @@
           <img class="feature__image" src="images/easy@2x.jpg" alt="" />
         </picture>
       </article>
-      <article class="grid grid--1x2 feature">
+      <article class="grid grid--1x2 feature" data-aos="fade-down-right">
         <div class="feature__content">
           <span class="icon-container">
             <svg class="icon icon--primary">
@@ -218,7 +245,7 @@
           <img class="feature__image" src="images/fast@2x.jpg" alt="" />
         </picture>
       </article>
-      <article class="grid grid--1x2 feature">
+      <article class="grid grid--1x2 feature" data-aos="fade-down-left">
         <div class="feature__content">
           <span class="icon-container">
             <svg class="icon icon--primary">
@@ -244,7 +271,7 @@
           <img class="feature__image" src="images/wordpress@2x.jpg" alt="" />
         </picture>
       </article>
-      <article class="grid grid--1x2 feature">
+      <article class="grid grid--1x2 feature" data-aos="flip-left">
         <div class="feature__content">
           <span class="icon-container">
             <svg class="icon icon--primary">

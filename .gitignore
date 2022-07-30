@@ -1,2 +1,3 @@
-
-Mosh_Project/
+node_modules/
+dist/
+.cache
