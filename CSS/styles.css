@@ -9,6 +9,9 @@ https://www.hongkiat.com/blog/basics-of-object-oriented-css/
 
 */
 
+/*to improve performance, to combine these style sheets into a single style sheet */
+@import './normalize.css';
+
 /*
 The CSS :root pseudo-class selector is used to select the highest-level 
 parent of a given specification. In the HTML specification, the :root is
@@ -21,6 +24,8 @@ parent of a given specification. In the HTML specification, the :root is
 -Secondary
 -Accent
 */
+
+
 :root {
   --color-primary: #2584ff;
   --color-secondary: #00d9ff;
