@@ -45,6 +45,7 @@ Use the ::before selector to insert something before the content.
 *::after,
 *::before {
   /*Set the "universal box-sizing":*/
+  /*to prevent paddings / borders from increase the size of the visible box.*/
   box-sizing: border-box;
 }
 
