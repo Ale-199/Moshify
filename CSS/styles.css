@@ -58,7 +58,7 @@ Use the ::before selector to insert something before the content.
   color: #fff;
 }
 
-/*by default it is going to be 16px. This is set by the browser*/
+/*by default， dont size is  16px. This is set by the browser*/
 html {
   /* 62.5% * 16px = 10px, change the default font-size to 10px*/
   font-size: 62.5%;
@@ -89,7 +89,7 @@ h1 {
 }
 
 h2 {
-  /*Reason why not using the px instead of using rem is because pixels are absolute unites. They are
+  /*Reason why using the rem instead of using px is because pixels are absolute unites. They are
     not flexible. So if the user change the default font size in their browser, our webpage is not going to 
     reflect that change.
     */
@@ -276,12 +276,16 @@ adjusting the styles for mobile and desktop.
   fill: #fff;
 }
 
-/*using single hyphen here. because this is not a variation, or a modifier for the icon class. This is an entirely new class. use single hyphen to separate multiple words*/
+/*using single hyphen here. because this is not a variation, or a modifier for the icon class. 
+This is an entirely new class. use single hyphen to separate multiple words*/
 .icon-container {
   background: #f3f9fa;
 
-  /*using px value here, because our icon always the same size. The don't change relative to the screen or the font size.that is why using an absolute unit here.
-    width and height properties have no effect on inline elements. span is a inline element
+  /*using px value here, because our icon always the same size. The don't change relative to the screen or the font size.
+  that is why using an absolute unit here. width and height properties have no effect on inline elements. span is a inline element
+  -The absolute length units are fixed and a length expressed in any of these will appear as exactly that size
+  -Absolute length units are not recommended for use on screen, because screen sizes vary so much. However,
+   they can be used if the output medium is known, such as for print layout.
   */
   width: 64px;
   height: 64px;
@@ -312,7 +316,7 @@ adjusting the styles for mobile and desktop.
 
   /*Instead of using a rem unit for horizontal padding or horizontal margin, we can use
   a percentage of the viewport width. 4vw means 4% of the width of the viewport. The wider the viewport, the more 
-  horizontal lpadding we are going to have*/
+  horizontal padding we are going to have*/
   padding: 2rem 4vw;
   text-align: center;
   text-transform: uppercase;
